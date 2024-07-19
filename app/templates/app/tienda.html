@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Comics Sharingann</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+  
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="Comics_Sharingann.html"> <!-- Enlace que lleva al inicio de la página -->
+                    <img src="{% static 'app/Img/Kakashi logo.jpg' %}" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li> <!-- Enlace para la tienda -->
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'quienes-somos' %}">Quiénes Somos</a></li>
+                {% if user.is_authenticated %}
+                <li style="font-size: 15px;">
+                    <a href="{% url 'logout' %}">cerrar secion</a>
+                </li>
+                
+                {% else %} 
+                <li style="font-size: 15px;">
+                    <a href="{% url 'login' %}">inicar sesion</a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="{% url 'registro' %}">registrarse</a>
+                </li>
+
+                <li><a href="{% url 'carrito' %}"><img src="https://img.icons8.com/?size=30&id=3538&format=png&color=000000" alt="carrito"></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container comics-container">
+        <!-- Cómics -->
+        <div class="comic">
+            <img src="{% static 'app/Img/batman1.jpg' %}" alt="Cómic 1">
+            <h2>Detective Comics #476 (1978)</h2>
+            <p>Lo realmente perturbador que resulta ver al héroe con la marca identificadora del Joker, a saber, su característica sonrisa.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/batman2.jpg' %}" alt="Cómic 2">
+            <h2>Batman #404 Año Uno (1987)</h2>
+            <p>Mostrarnos el momento exacto por el cual un jovencísimo Bruce Wayne acabará convirtiéndose en el guardián de Gotham.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(2)">Añadir al carrito</button>
+        </div>
+    
+        <div class="comic">
+            <img src="{% static 'app/Img/batman3.jpg' %}" alt="Cómic 3">
+            <h2>Batman #47 (1948)</h2>
+            <p>La importancia de que tras esa portada pudimos ver por primera vez el origen del héroe.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(3)">Añadir al carrito</button>
+        </div>
+    
+        <div class="comic">
+            <img src="{% static 'app/Img/batman4.jpg' %}" alt="Cómic 4">
+            <h2>Detective Comics #183 (1966)</h2>
+            <p>La curiosidad de que hagan publicidad directa de la serie de televisión de los 60 que tenía a Adam West como protagonista.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+    
+        <div class="comic">
+            <img src="{% static 'app/Img/batman5.jpg' %}" alt="Cómic 5">
+            <h2>Detective Comics #359 (1966)</h2>
+            <p>La primera vez que Barbara Gordon se enfunda el traje de Batgirl.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+    
+        <div class="comic">
+            <img src="{% static 'app/Img/Batman6.jpg' %} " alt="Cómic 6">
+            <h2>Batman: La Broma Asesina (1988)</h2>
+            <p>Ser una historia de Alan Moore que marcará un antes y un después por su controvertido final y por los sucesos que harán que cambie la vida drásticamente de uno de los personajes más cercanos al caballero oscuro.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+    
+        <div class="comic">
+            <img src="{% static 'app/Img/batman7.jpg' %}" alt="Cómic 7">
+            <h2>Batman: El regreso del Caballero Oscuro (1986)</h2>
+            <p>Una de las mayores obras maestras de Frank Miller.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+        
+        <div class="comic">
+            <img src="{% static 'app/Img/batman8.jpg' %}" alt="Cómic 8">
+            <h2>Batman: A Death in the Family (1988)</h2>
+            <p>El título en castellano “una muerte en la familia” y la portada no puede ser más gráfica por ocurrir la desgraciada muerte de Jason Todd a manos de Joker.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+    
+        <div class="comic">
+            <img src="{% static 'app/Img/batman9.jpg' %}" alt="Cómic 9">
+            <h2>Detective Comics #427 (1993)</h2>
+            <p>¿No lo dice todo la portada? El enfrentamiento con Bane que le pasó factura. Incluso creo que es una portada que trasmite el dolor físico y emocional del personaje.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman1.jpg' %}" alt="Cómic 11">
+            <h2>Iron Man (2020) #1</h2>
+            <p>Tony Stark busca reiniciar su motor. Decide que volverá a lo básico y dejará de lado sus juguetes de alta tecnología y su imagen de alto perfil para poder ensuciarse las manos nuevamente.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman2.jpg' %}" alt="Cómic 12">
+            <h2>Iron Man (2020) #2</h2>
+            <p>Tony Stark continúa desmantelando toscamente las formas elegantes, brillantes y sofisticadas de su pasado pero el mundo no parece muy convencido de que haya cambiado su tono de chico rico.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman3.jpg' %}" alt="Cómic 13">
+            <h2>Iron Man (2020) #3</h2>
+            <p>Tony Stark se está cansando de disculparse por ser él mismo, especialmente cuando, como Iron Man, es más poderoso que cualquier otro ser humano en la Tierra.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman4.jpg' %}" alt="Cómic 14">
+            <h2>Iron Man (2020) #4</h2>
+            <p>Iron Man y Hellcat tuvieron suerte de sobrevivir a su primer encuentro con Korvac y sus nuevos discípulos, pero encontrarlo y detenerlo está resultando un desafío aún mayor.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman5.jpg' %}" alt="Cómic 15">
+            <h2>Iron Man (2020) #5</h2>
+            <p>Es hora de aguantar o callar a KORVAC mientras el cerebro androide comienza la siguiente fase de su ascenso hacia el poder absoluto, y IRON MAN decide, a regañadientes, finalmente pedir ayuda.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman6.jpg' %}" alt="Cómic 16">
+            <h2>Iron Man (2020) #6</h2>
+            <p>Después de recibir una lesión casi fatal de Korvac, Iron Man aterriza en un triaje de emergencia con su vida en juego. Halcyon y Misty Knight trabajan rápidamente para encerrar a Tony en su armadura y curar sus heridas... pero ahora no puede quitársela o morirá.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman7.jpg' %}" alt="Cómic 17">
+            <h2>Iron Man (2020) #7</h2>
+            <p>Iron Man y su pequeño grupo de aliados se vuelven interestelares mientras persiguen a Korvac hasta los confines más lejanos de la galaxia.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman8.jpg' %}" alt="Cómic 18">
+            <h2>Iron Man (2020) #8</h2>
+            <p>Tony Stark ha desaparecido en medio del espacio exterior y sus amigos están a punto de morir a manos de Korvac.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+
+        <div class="comic">
+            <img src="{% static 'app/Img/ironman9.jpg' %}" alt="Cómic 19">
+            <h2>Iron Man (2020) #9</h2>
+            <p>Después de descubrir la nueva y extraña sensación de duda, Korvac y su tripulación toman un desvío en el espacio profundo para buscar un aliado poco probable.</p>
+            <p>Precio: $10</p>
+            <p>Unidades disponibles: 5</p>
+            <button onclick="añadirAlCarrito(1)">Añadir al carrito</button>
+        </div>
+    </div>
+
+            <!-- Formulario de compra -->
+<div id="formularioCompra" style="display: none;">
+    <h2>Formulario de Compra</h2>
+    <form id="formulario">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" required><br>
+
+        <!-- Agregar más campos según sea necesario -->
+        <label for="direccion">Dirección:</label>
+        <input type="text" id="direccion" required><br>
+
+        <label for="ciudad">Ciudad:</label>
+        <input type="text" id="ciudad" required><br>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" required><br>
+
+        <button type="submit">Enviar</button>
+        <!-- Botón para volver a la página principal durante la compra -->
+        <button type="button" onclick="volverPaginaPrincipal()">Volver a la página principal</button>
+    </form>
+</div>
+
+    </div>
+
+    <!-- Mensaje de agradecimiento -->
+    <div id="agradecimiento" style="display: none;">
+        <h2>¡Gracias por su compra!</h2>
+        <p>Tu pedido ha sido tomado correctamente, más informacion detallada en el correo dado.</p>
+
+        <button type="button" onclick="volverPaginaPrincipal()">Volver a la página principal</button>
+
+    </div>
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/" target="_blank"><img src="{% static 'app/Img/Logoig.jpg' %}" alt="Instagram"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'app/Img/Logoface.jpg' %}" alt="Facebook"></a>
+            </div>
+            <p>© 2024 Comics Sharigann | Tienda de comics | Tienda Online de DC Comics | Marvel Comics .</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script src="{% static 'app/Js/script.js' %}"></script>
+</body>
+</html>

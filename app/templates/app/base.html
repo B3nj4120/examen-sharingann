@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Marvel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+    {% endblock %}
+  
+
+<body>
+    <header>
+        <h1> 
+            <img src="https://preview.redd.it/what-were-fan-theories-about-kakashis-sharingan-before-his-v0-upygx3cpebub1.png?auto=webp&s=18a74a9b31b898c5cb0820d6f63573b3a6eeb727" alt="Logo" style="height: 50px; vertical-align: middle;">
+            <a href="#inicio" id="titulo-inicio">Comics Sharingann</a>
+        </h1>
+        <nav>
+            <ul>
+                <li style="font-size: 22px;"><a href="{% url 'home' %}">Inicio</a></li>
+                <li style="font-size: 22px;"><a href="{% url 'tienda' %}">Tienda</a></li>
+                <li style="font-size: 22px;"><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li style="font-size: 22px;"><a href="{% url 'quienes-somos' %}">Quiénes Somos</a></li>
+                <li style="font-size: 22px;"><a href="{% url 'login' %}">Iniciar Sesión</a></li>
+                <li style="font-size: 22px;"><a href="{% url 'register' %}">Registrarse</a></li>
+
+                <li class="nav-item">
+                    <a href="{% url 'carrito' %}"><img src="https://img.icons8.com/?size=30&id=3538&format=png&color=000000" alt="carrito"></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+    
+    <footer>
+        <div>
+            hola
+        </div>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">Comics Sharingann</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.instagram.com/" target="_blank"><img src="https://img.icons8.com/?size=30&id=Xy10Jcu1L2Su&format=png&color=000000" alt="Instagram"></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.facebook.com/" target="_blank"><img src="https://img.icons8.com/?size=30&id=118497&format=png&color=000000" alt="Facebook"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <p style="font-size: 25px; text-align: center; margin-top: 20px;">© 2024 Comics Sharingann | Tienda de comics.</p>
+        </div>
+    </footer>    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="app/static/js/script.js"></script>
+</body>
+</html>
+</body>
+</html>

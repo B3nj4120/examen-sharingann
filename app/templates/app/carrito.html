@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}"> <!-- Enlace que lleva al inicio de la página -->
+                    <img src="{% static 'app/Img/Kakashi logo.jpg' %}" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li>
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'quienes-somos' %}">Quiénes Somos</a></li>
+                {% if user.is_authenticated %}
+                <li style="font-size: 15px;">
+                    <a href="{% url 'logout' %}">cerrar secion</a>
+                </li>
+                
+                {% else %} 
+                <li style="font-size: 15px;">
+                    <a href="{% url 'login' %}">inicar sesion</a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="{% url 'registro' %}">registrarse</a>
+                </li>
+                <li><a href="{% url 'carrito' %}"><img src="https://img.icons8.com/?size=30&id=3538&format=png&color=000000" alt="carrito"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <section id="carrito">
+        <h2>Carrito de Compra</h2>
+        <ul id="lista-carrito"></ul>
+        <button id="vaciar-carrito">Vaciar Carrito</button>
+        <div id="total-carrito"></div>
+        <button id="comprar">Comprar</button>
+    </section>
+    <script src="{% static 'app/Js/script.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quienes somos</title>
+    <link rel="stylesheet" href="{% static 'app/css/style.css'%}">
+   
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="{% url 'home' %}"> <!-- Enlace que lleva al inicio de la página -->
+                <img src="{% static 'app/Img/Kakashi logo.jpg' %}" alt="Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home' %}">Inicio</a></li>
+                <li><a href="{% url 'tienda' %}">Tienda</a></li> <!-- Enlace para la tienda -->
+                <li><a href="{% url 'contacto' %}">Contacto</a></li>
+                <li><a href="{% url 'quienes-somos' %}">Quiénes Somos</a></li>
+                {% if user.is_authenticated %}
+                <li style="font-size: 15px;">
+                    <a href="{% url 'logout' %}">cerrar secion</a>
+                </li>
+                
+                {% else %} 
+                <li style="font-size: 15px;">
+                    <a href="{% url 'login' %}">inicar sesion</a>
+                </li>
+                {% endif %}
+                <li>
+                    <a href="{% url 'registro' %}">registrarse</a>
+                </li>
+                <li><a href="{% url 'carrito' %}"><img src="https://img.icons8.com/?size=30&id=3538&format=png&color=000000" alt="carrito"></a></li>
+            </ul>
+        </div>
+    </nav>
+      
+    <div class="container extra-info">
+        <img src="{% static 'app/Img/equipo.jpg' %}" alt="Imagen Extra" width="700">
+        <div class="text-right">
+            <h1>Quiénes Somos</h1>
+            <p>Somos Comics Sharingann, una tienda dedicada a la venta de cómics de diversas temáticas.</p>
+            <p>Nuestro objetivo es proporcionar a nuestros clientes una amplia variedad de cómics de alta calidad a precios accesibles.</p>
+            <p>¡Gracias por visitarnos!</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/" target="_blank"><img src="{% static 'app/Img/Logoig.jpg' %}" alt="Instagram"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img src="{% static 'app/Img/Logoface.jpg' %}" alt="Facebook"></a>
+            </div>
+            <p>© 2024 Comics Sharigann | Tienda de comics | Tienda Online de DC Comics | Marvel Comics .</p>
+        </div>
+    </footer>
+</body>
+</html>
